@@ -1,0 +1,49 @@
+{
+  "family": "shiva",
+  "taskRoleArn": "arn:aws:iam::509064165318:role/gowri",
+  "executionRoleArn": "arn:aws:iam::509064165318:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "gowtham",
+      "image": "509064165318.dkr.ecr.us-west-1.amazonaws.com/gowri-shankar@sha256:7c57798ef85fc4a5eb3c6db5b8a6369df46b7b4c14a3ca07880900ede61a4836",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "gowtham-80-tcp",
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/shiva",
+          "awslogs-create-group": "true",
+          "awslogs-region": "us-west-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": []
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "3072",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "volumes": [],
+  "placementConstraints": []
+}
